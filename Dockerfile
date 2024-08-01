@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y \
     libwayland-server0 \
     fonts-liberation \
     libappindicator3-1 \
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 # Thiết lập thư mục làm việc
@@ -39,7 +40,8 @@ WORKDIR /app
 # Sao chép và cài đặt các phụ thuộc
 COPY pyproject.toml poetry.lock* /app/
 RUN poetry install --no-root
-
+RUN pip install -r requirements.txt 
+RUN uvicorn main:app --reload
 # Sao chép mã nguồn ứng dụng vào container
 COPY . /app/
 
