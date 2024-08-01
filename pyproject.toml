@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "tracking-app"
+version = "0.1.0"
+description = ""
+authors = ["tienta17 <tien_ta@theinfitech.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
