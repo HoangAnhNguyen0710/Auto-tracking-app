@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fastapi-app
+    env: python
+    buildCommand: |
+      poetry install
+      poetry run playwright install
+      playwright install
+    startCommand: |
+      poetry run uvicorn main:app --host 0.0.0.0 --port 10000
+    plan: free
+    region: oregon  # Chọn vùng phù hợp
